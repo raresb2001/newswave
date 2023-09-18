@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Homepage {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            {% for article in articles %}
+                <div class="col-md-4 py-4">
+                    <div class="card row gx-2 gy-0">
+                        <div class="card-header text-center">{{ article.title }}</div>
+                        <div class="card-body">
+                            <h4>{{ article.author }}</h4>
+                            <p>{{ article.description }}</p>
+                            <img src="{{ article.urlToImage }}" width="300px" height="200px">
+                            <p>{{ article.content }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
